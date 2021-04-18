@@ -13,6 +13,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { INavigation } from '../../../types';
+import { doLogin } from '../../store/AuthStore';
 import { authStyles } from './Auth.style';
 
 type IAuth = {
@@ -38,18 +39,20 @@ const Auth = ({ navigation }: IAuth) => {
     </TouchableWithoutFeedback>
   );
 
-  const doLogin = () => {
+  const handleLogin = async () => {
     setErrorData({ email: !authData.email, password: !authData.password });
     if (!authData.email || !authData.password) {
       return;
     }
-    navigation.navigate('Home', { user: authData });
+    await doLogin.run({ ...authData });
+    navigation.navigate('Home');
   };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={authStyles.view}>
+      style={authStyles.view}
+    >
       <Layout style={authStyles.layout}>
         <Text category="h1">Do Login</Text>
         <Input
@@ -79,7 +82,7 @@ const Auth = ({ navigation }: IAuth) => {
           onChangeText={(password) => setAuthData({ ...authData, password })}
         />
         <Divider />
-        <Button onPress={doLogin} style={authStyles.button}>
+        <Button onPress={handleLogin} style={authStyles.button}>
           LOGIN
         </Button>
       </Layout>

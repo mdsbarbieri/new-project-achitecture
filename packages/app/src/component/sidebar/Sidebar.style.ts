@@ -1,26 +1,25 @@
 import { StyleSheet } from 'react-native';
-import globalStyles from '../../../styles/global.style';
+import globalStyles from '../../styles/global.style';
 
 export const sidebarStyles = StyleSheet.create({
   sidebar: {
     flex: 1,
     backgroundColor: globalStyles.colors.colorBasic200,
     padding: 0,
+    alignItems: 'stretch',
   },
   header: {
-    backgroundColor: globalStyles.colors.colorPrimary500,
     minHeight: 80,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     padding: globalStyles.spacing.sm,
     paddingTop: globalStyles.spacing.lg,
+    backgroundColor: globalStyles.colors.colorPrimary500,
+    display: 'flex',
   },
   icon: {
     height: 40,
     width: 40,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: globalStyles.colors.colorBasic100,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: globalStyles.border.radius.sm,
@@ -35,9 +34,15 @@ export const sidebarStyles = StyleSheet.create({
     height: 15,
     marginHorizontal: 5,
   },
-  customItem: {
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
+  navItems: {
+    flex: 1,
+    padding: globalStyles.spacing.nm,
+  },
+  saudation: {
+    color: globalStyles.colors.colorPrimary100,
+    fontWeight: 'bold',
+    flex: 1,
+    alignSelf: 'center',
+    padding: globalStyles.spacing.sm,
   },
 });

@@ -1,4 +1,4 @@
-import { Button, Layout, Text } from '@ui-kitten/components';
+import { Layout, Text } from '@ui-kitten/components';
 import React, { useEffect, useState } from 'react';
 import { INavigation, IRoute } from '../../../types';
 import Header from '../../component/header/Header';
@@ -29,16 +29,6 @@ const Home = ({ navigation, route }: IHome) => {
       <Layout style={homeStyles.container}>
         <Layout style={homeStyles.content}>
           {user && <Text category="h4">{`Logged as ${user.email}`}</Text>}
-          {user ? (
-            <Button
-              appearance="ghost"
-              status="danger"
-              onPress={() => setUser(null)}>
-              Logout
-            </Button>
-          ) : (
-            <Button onPress={() => navigation.navigate('Auth')}>Login</Button>
-          )}
         </Layout>
       </Layout>
     </>
