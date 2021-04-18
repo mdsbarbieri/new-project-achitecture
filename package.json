@@ -1,0 +1,9 @@
+{
+  "author": "Matheus Barbieri",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
